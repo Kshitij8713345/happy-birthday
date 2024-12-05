@@ -18,8 +18,8 @@ const fetchData = () => {
             // Resize the image after it has loaded
             imageElement.onload = () => {
               // Apply CSS to scale the image to a smaller size
-              imageElement.style.width = "270px"; // Change this to your desired size
-              imageElement.style.height = "380px"; // Maintain aspect ratio
+              imageElement.style.width = "280px"; // Change this to your desired size
+              imageElement.style.height = "400px"; // Maintain aspect ratio
               imageElement.style.borderRadius = "20px";
             };
           }
