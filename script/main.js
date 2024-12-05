@@ -10,7 +10,22 @@ const fetchData = () => {
             document
               .querySelector(`[data-node-name*="${customData}"]`)
               .setAttribute("src", data[customData]);
-          } else {
+
+              if (customData === "imagePath") {
+            const imageElement = document.querySelector(`[data-node-name*="${customData}"]`);
+            imageElement.setAttribute("src", data[customData]);
+            
+            // Resize the image after it has loaded
+            imageElement.onload = () => {
+              // Apply CSS to scale the image to a smaller size
+              imageElement.style.width = "270px"; // Change this to your desired size
+              imageElement.style.height = "380px"; // Maintain aspect ratio
+              imageElement.style.borderRadius = "20px";
+            };
+          }
+        }
+          
+          else {
             document.querySelector(`[data-node-name*="${customData}"]`).innerText = data[customData];
           }
         }
@@ -304,3 +319,6 @@ const animationTimeline = () => {
 
 // Run fetch and animation in sequence
 fetchData();
+
+
+
